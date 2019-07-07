@@ -14,6 +14,7 @@ const initialState = {
  }
 
 function rootReducer( state = initialState, action ) {
+  console.log(state.smurfs)
   switch(action.type) {
     case GET_SMURFS:
       return {
@@ -32,6 +33,12 @@ function rootReducer( state = initialState, action ) {
         return {
           ...state,
           error: action.payload
+        }
+      case ADD_SMURF:
+        return {
+          ...state,
+          smurfs: action.payload,
+          addingSmurf: true,
         }
     default:
       return state;
